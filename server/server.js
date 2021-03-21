@@ -35,6 +35,12 @@ const middleware = [
 
 middleware.forEach((it) => server.use(it))
 
+server.use((req, res, next) => {
+  res.set('x-skillcrucial-user', '9014abd2-0916-4eab-adc0-f65959f79224')
+  res.set('Access-Control-Expose-Headers', 'X-SKILLCRUCIAL-USER')
+  next()
+})
+
 server.use('/api/', (req, res) => {
   res.status(404)
   res.end()
