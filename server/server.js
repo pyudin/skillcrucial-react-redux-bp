@@ -17,7 +17,7 @@ try {
   // eslint-disable-next-line import/no-unresolved
   Root = require('../dist/assets/js/ssr/root.bundle').default
 } catch {
-  console.log('SSR not found. Please run "yarn run build:ssr"'.red)
+  // console.log('SSR not found. Please run "yarn run build:ssr"'.red)
 }
 
 let connections = []
@@ -85,4 +85,5 @@ if (config.isSocketsEnabled) {
   })
   echo.installHandlers(app, { prefix: '/ws' })
 }
-console.log(`Serving at http://localhost:${port}`)
+
+// console.log(`Serving at http://localhost:${port}`)
