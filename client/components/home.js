@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
+import Dashboard from './dashboard'
 import Head from './head'
+import Main from './main'
 // import wave from '../assets/images/wave.jpg'
 
 const Home = () => {
@@ -13,6 +15,8 @@ const Home = () => {
         updateCounter
       </button>
       <div> Hello World Dashboard {counter} </div>
+      <Dashboard />
+      <Main />
     </div>
   )
 }
