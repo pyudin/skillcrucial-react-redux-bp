@@ -1,26 +1,27 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { BrowserRouter, Route } from 'react-router-dom'
 import Dashboard from './dashboard'
-import Head from './head'
+import Header from './header'
 import Main from './main'
-// import wave from '../assets/images/wave.jpg'
+import Profile from './profile'
 
 const Home = () => {
-  const [counter, setCounterNew] = useState(0)
-
   return (
     <div>
-      <Head title="Hello" />
-      <img alt="waves" src="images/wave.jpg" />
-      <button type="button" onClick={() => setCounterNew(counter + 1)}>
-        updateCounter
-      </button>
-      <div> Hello World Dashboard {counter} </div>
-      <Dashboard />
-      <Main />
+      <Header />
+      <div className="flex items-center justify-center h-screen">
+        <div className="bg-indigo-800 text-white font-bold rounded-lg border shadow-lg p-10">
+          <BrowserRouter>
+            <Route exact path="/dashboard" component={() => <Dashboard />} />
+            <Route exact path="/dashboard/main" component={() => <Main />} />
+            <Route exact path="/dashboard/profile/:user" component={() => <Profile />} />
+          </BrowserRouter>
+        </div>
+      </div>
     </div>
   )
 }
 
 Home.propTypes = {}
 
-export default Home
+export default React.memo(Home)
